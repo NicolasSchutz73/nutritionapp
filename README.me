@@ -1,0 +1,122 @@
+📘 Cahier des charges – Application de suivi alimentaire (MVP)
+1. 🎯 Objectif de l'application
+Permettre à un utilisateur de suivre ses apports journaliers en macronutriments et calories, en enregistrant les aliments consommés par type de repas, avec la possibilité de définir des objectifs nutritionnels et de planifier ses calories sur la semaine.
+
+2. 👤 Utilisateur
+Une seule personne utilisera l’application à la fois (toi, puis potentiellement ta copine).
+
+Pas de système de compte ou d’authentification requis au MVP.
+
+3. 🖼️ Fonctionnalités principales
+3.1. 🧾 Gestion des repas
+Types de repas : Petit-déjeuner, Déjeuner, Dîner, Collation, Autres
+
+Par repas :
+
+Ajouter un ou plusieurs aliments enregistrés (avec quantité personnalisable)
+
+Ajouter une ou plusieurs entrées rapides (sans créer d’aliment, avec champs libres)
+
+Calcul automatique des apports nutritionnels selon la quantité
+
+3.2. 🍎 Gestion des aliments
+Création d’un aliment avec les informations suivantes :
+
+Nom
+
+Marque
+
+Valeurs pour 100g ou 100ml :
+
+Calories (kcal)
+
+Protéines (g)
+
+Glucides (g)
+
+Lipides (g)
+
+L’aliment est stocké et réutilisable pour les repas
+
+Pas de base de données alimentaire externe au MVP
+
+3.3. ⚡ Entrées rapides
+Permet de renseigner directement :
+
+Calories (kcal)
+
+Protéines, Glucides, Lipides
+
+Tous les champs sont optionnels
+
+Pratique pour les cas où l’aliment n’est pas créé
+
+3.4. 📅 Navigation par date
+L’utilisateur peut :
+
+Naviguer dans l’historique des jours passés
+
+Préparer les jours suivants
+
+Sélectionner une date via un calendrier
+
+3.5. 🎯 Objectifs journaliers
+L’utilisateur peut définir :
+
+Objectif calorique par jour (ex : 2000 kcal)
+
+Objectifs macronutriments en :
+
+Valeurs absolues (ex : 150g protéines)
+
+ou % des calories (ex : 40% prot, 30% gluc, 30% lip)
+
+Affichage visuel des progrès (barres/jauges/journal)
+
+3.6. 📊 Répartition hebdomadaire intelligente
+L’utilisateur peut activer un mode "objectif hebdo réparti"
+
+Ex : Objectif = 2000 kcal × 7 jours = 14 000 kcal
+
+Il peut dire : "lundi = +200", "dimanche = -200", etc.
+
+L’app ajuste les jours restants pour maintenir l’équilibre hebdomadaire
+
+4. 🧱 Architecture technique
+Composant	Technologie prévue
+Frontend	Angular (avec PWA)
+Backend/API	Node.js avec Express
+Base de données	PostgreSQL (hébergée sur Railway)
+Hébergement	Railway (backend), Vercel ou GitHub Pages (frontend)
+Authentification	Aucune au MVP
+Données locales	IndexedDB ou LocalStorage (PWA), si besoin hors ligne
+
+5. 🔄 Données stockées
+Aliment :
+id, nom, marque
+
+valeurs pour 100g/ml : kcal, prot, gluc, lip
+
+Repas :
+date, type de repas
+
+liste d'aliments liés (avec quantité)
+
+ou entrées rapides
+
+Objectifs :
+Objectif journalier (kcal + macros)
+
+Répartition hebdomadaire (optionnelle)
+
+6. 📈 Évolutions futures (post-MVP envisagées)
+Gestion multi-utilisateur
+
+Calcul du métabolisme de base via les mensurations
+
+Suggestions automatiques de repas
+
+Synchronisation entre appareils
+
+Mode offline amélioré
+
