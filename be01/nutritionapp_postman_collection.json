@@ -1,0 +1,153 @@
+{
+  "info": {
+    "_postman_id": "b8c3c9c9-0f8b-4f2c-8c5b-collection",
+    "name": "NutritionApp API (auto-gen 2025-05-02)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Créer un aliment",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Pâtes complètes\",\n  \"calories\": 350,\n  \"protein\": 12,\n  \"carbs\": 68,\n  \"fat\": 2.5\n}"
+        },
+        "url": { "raw": "http://localhost:3000/api/foods", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "foods"] }
+      }
+    },
+    {
+      "name": "Lister les aliments",
+      "request": { "method": "GET", "url": { "raw": "http://localhost:3000/api/foods", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "foods"] } }
+    },
+    {
+      "name": "Voir un aliment",
+      "request": { "method": "GET", "url": { "raw": "http://localhost:3000/api/foods/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "foods", "1"] } }
+    },
+    {
+      "name": "Modifier un aliment",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Pâtes semi-complètes\",\n  \"calories\": 340,\n  \"protein\": 11.5,\n  \"carbs\": 67,\n  \"fat\": 2.8\n}"
+        },
+        "url": { "raw": "http://localhost:3000/api/foods/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "foods", "1"] }
+      }
+    },
+    {
+      "name": "Supprimer un aliment",
+      "request": { "method": "DELETE", "url": { "raw": "http://localhost:3000/api/foods/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "foods", "1"] } }
+    },
+    {
+      "name": "Structure repas du jour",
+      "request": { "method": "GET", "url": { "raw": "http://localhost:3000/api/meals?date=2025-05-02", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "meals"], "query": [{"key":"date","value":"2025-05-02"}] } }
+    },
+    {
+      "name": "Ajouter aliment à repas",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"date\": \"2025-05-02\",\n  \"type\": \"lunch\",\n  \"food_id\": 1,\n  \"quantity_g\": 120\n}"
+        },
+        "url": { "raw": "http://localhost:3000/api/meal-foods", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "meal-foods"] }
+      }
+    },
+    {
+      "name": "Modifier quantité aliment repas",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"quantity_g\": 150\n}"
+        },
+        "url": { "raw": "http://localhost:3000/api/meal-foods/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "meal-foods", "1"] }
+      }
+    },
+    {
+      "name": "Supprimer aliment repas",
+      "request": { "method": "DELETE", "url": { "raw": "http://localhost:3000/api/meal-foods/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "meal-foods", "1"] } }
+    },
+    {
+      "name": "Ajouter entrée rapide",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"date\": \"2025-05-02\",\n  \"type\": \"dinner\",\n  \"calories\": 200,\n  \"protein\": 10,\n  \"carbs\": 25,\n  \"fat\": 5,\n  \"comment\": \"Yaourt rapide\"\n}"
+        },
+        "url": { "raw": "http://localhost:3000/api/quick-entries", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "quick-entries"] }
+      }
+    },
+    {
+      "name": "Modifier entrée rapide",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"calories\": 220\n}"
+        },
+        "url": { "raw": "http://localhost:3000/api/quick-entries/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "quick-entries", "1"] }
+      }
+    },
+    {
+      "name": "Supprimer entrée rapide",
+      "request": { "method": "DELETE", "url": { "raw": "http://localhost:3000/api/quick-entries/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "quick-entries", "1"] } }
+    },
+    {
+      "name": "Créer objectif nutritionnel par défaut",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"calories_goal\": 2000,\n  \"protein_goal\": 120,\n  \"carbs_goal\": 250,\n  \"fat_goal\": 60,\n  \"is_default\": true\n}"
+        },
+        "url": { "raw": "http://localhost:3000/api/nutrition-goals", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "nutrition-goals"] }
+      }
+    },
+    {
+      "name": "Créer objectif nutritionnel pour une date",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"date\": \"2025-05-02\",\n  \"calories_goal\": 1800,\n  \"protein_goal\": 100,\n  \"carbs_goal\": 220,\n  \"fat_goal\": 50\n}"
+        },
+        "url": { "raw": "http://localhost:3000/api/nutrition-goals", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "nutrition-goals"] }
+      }
+    },
+    {
+      "name": "Obtenir objectif nutritionnel d'une date (ou défaut)",
+      "request": { "method": "GET", "url": { "raw": "http://localhost:3000/api/nutrition-goals/2025-05-02", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "nutrition-goals", "2025-05-02"] } }
+    },
+    {
+      "name": "Obtenir objectif nutritionnel par défaut",
+      "request": { "method": "GET", "url": { "raw": "http://localhost:3000/api/nutrition-goals/default", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["api", "nutrition-goals", "default"] } }
+    }
+  ]
+}

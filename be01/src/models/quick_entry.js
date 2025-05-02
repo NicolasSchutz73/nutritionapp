@@ -1,10 +1,10 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./index');
-const Meal = require('./meal');
 
 const QuickEntry = sequelize.define('QuickEntry', {
   id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-  meal_id: { type: DataTypes.INTEGER, allowNull: false, references: { model: Meal, key: 'id' } },
+  date: { type: DataTypes.DATEONLY, allowNull: false },
+  type: { type: DataTypes.ENUM('breakfast', 'lunch', 'dinner', 'snack', 'other'), allowNull: false },
   calories: { type: DataTypes.FLOAT },
   protein: { type: DataTypes.FLOAT },
   carbs: { type: DataTypes.FLOAT },
@@ -14,8 +14,5 @@ const QuickEntry = sequelize.define('QuickEntry', {
   tableName: 'quick_entry',
   timestamps: false,
 });
-
-Meal.hasMany(QuickEntry, { foreignKey: 'meal_id' });
-QuickEntry.belongsTo(Meal, { foreignKey: 'meal_id' });
 
 module.exports = QuickEntry;

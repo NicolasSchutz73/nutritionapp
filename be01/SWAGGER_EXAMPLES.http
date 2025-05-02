@@ -1,0 +1,99 @@
+### EXEMPLES DE REQUÊTES POUR TESTER L'API (à utiliser avec VSCode REST Client, Insomnia, etc.)
+
+# --- Aliments ---
+POST http://localhost:3000/api/foods
+Content-Type: application/json
+
+{
+  "name": "Pâtes complètes",
+  "calories": 350,
+  "protein": 12,
+  "carbs": 68,
+  "fat": 2.5
+}
+
+###
+GET http://localhost:3000/api/foods
+
+###
+GET http://localhost:3000/api/foods/1
+
+###
+PUT http://localhost:3000/api/foods/1
+Content-Type: application/json
+
+{
+  "name": "Pâtes semi-complètes",
+  "calories": 340,
+  "protein": 11.5,
+  "carbs": 67,
+  "fat": 2.8
+}
+
+###
+DELETE http://localhost:3000/api/foods/1
+
+# --- Repas virtuels (structure de la journée) ---
+GET http://localhost:3000/api/meals?date=2025-05-02
+
+# --- Ajouter un aliment à un repas virtuel ---
+POST http://localhost:3000/api/meal-foods
+Content-Type: application/json
+
+{
+  "date": "2025-05-02",
+  "type": "lunch",
+  "food_id": 1,
+  "quantity_g": 120
+}
+
+###
+PUT http://localhost:3000/api/meal-foods/1
+Content-Type: application/json
+
+{
+  "quantity_g": 150
+}
+
+###
+DELETE http://localhost:3000/api/meal-foods/1
+
+# --- Ajouter une entrée rapide à un repas virtuel ---
+POST http://localhost:3000/api/quick-entries
+Content-Type: application/json
+
+{
+  "date": "2025-05-02",
+  "type": "dinner",
+  "calories": 200,
+  "protein": 10,
+  "carbs": 25,
+  "fat": 5,
+  "comment": "Yaourt rapide"
+}
+
+###
+PUT http://localhost:3000/api/quick-entries/1
+Content-Type: application/json
+
+{
+  "calories": 220
+}
+
+###
+DELETE http://localhost:3000/api/quick-entries/1
+
+# --- Objectifs nutritionnels ---
+POST http://localhost:3000/api/nutrition-goals
+Content-Type: application/json
+
+{
+  "date": "2025-05-02",
+  "calories_goal": 2000,
+  "protein_goal": 120,
+  "carbs_goal": 250,
+  "fat_goal": 60
+}
+
+###
+GET http://localhost:3000/api/nutrition-goals/2025-05-02

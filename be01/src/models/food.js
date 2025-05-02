@@ -4,11 +4,10 @@ const sequelize = require('./index');
 const Food = sequelize.define('Food', {
   id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
   name: { type: DataTypes.STRING, allowNull: false },
-  brand: { type: DataTypes.STRING },
-  calories_per_100g: { type: DataTypes.FLOAT, allowNull: false },
-  protein_per_100g: { type: DataTypes.FLOAT, allowNull: false },
-  carbs_per_100g: { type: DataTypes.FLOAT, allowNull: false },
-  fat_per_100g: { type: DataTypes.FLOAT, allowNull: false },
+  calories: { type: DataTypes.FLOAT },
+  protein: { type: DataTypes.FLOAT },
+  carbs: { type: DataTypes.FLOAT },
+  fat: { type: DataTypes.FLOAT },
 }, {
   tableName: 'food',
   timestamps: false,

@@ -82,6 +82,55 @@ Il peut dire : "lundi = +200", "dimanche = -200", etc.
 
 L’app ajuste les jours restants pour maintenir l’équilibre hebdomadaire
 
+---
+
+## ✅ Fonctionnalités back-end développées (Express + Sequelize)
+
+### 1. Gestion des aliments (`/api/foods`)
+- **Créer, lire, modifier, supprimer** des aliments personnalisés
+- Stockage de : nom, marque, calories, protéines, glucides, lipides (pour 100g/ml)
+
+### 2. Gestion des repas virtuels (`/api/meals`, `/api/meal-foods`)
+- Structure des repas basée sur la date et le type (petit-déjeuner, déjeuner, dîner, collation, autres)
+- **Ajout/suppression/modification d'aliments dans un repas virtuel** (quantité personnalisable)
+- Pas de création/suppression de repas : ils existent virtuellement pour chaque date/type
+
+### 3. Entrées rapides (`/api/quick-entries`)
+- Ajouter/modifier/supprimer une entrée rapide dans un repas (date/type)
+- Permet de renseigner directement calories, protéines, glucides, lipides, commentaire
+
+### 4. Objectifs nutritionnels (`/api/nutrition-goals`)
+- Définir ou modifier l'objectif calorique et les macros pour chaque jour
+- Récupérer l'objectif d'une date donnée
+
+### 5. Navigation par date
+- Tous les endpoints sont pensés pour fonctionner par date (historique, préparation à l'avance, etc.)
+
+### 6. Documentation API (Swagger)
+- Documentation complète et interactive disponible sur `/api/docs`
+- Tous les endpoints, schémas de données, exemples de requêtes/réponses
+
+### 7. Collection Postman
+- Fichier prêt à l'emploi pour tester tous les endpoints de l'API
+
+---
+
+## 🚧 Fonctionnalités back-end à développer ou à améliorer
+
+- **Répartition hebdomadaire intelligente** (objectif hebdo réparti sur la semaine, ajustement automatique)
+  - Non implémenté côté back pour l'instant (uniquement objectifs journaliers)
+- **Affichage visuel des progrès** (barres/jauges)
+  - À réaliser côté front (le back fournit déjà les données nécessaires)
+- **Gestion multi-utilisateur, authentification**
+  - Non prévu au MVP, à envisager pour la suite
+- **Suggestions automatiques de repas, calcul du métabolisme, synchronisation multi-appareils**
+  - À développer dans des versions futures
+
+---
+
+## 🟢 En résumé
+Le back-end couvre **toutes les fonctionnalités MVP** prévues dans le cahier des charges : gestion des aliments, repas virtuels, entrées rapides, objectifs journaliers, documentation et testabilité. Il ne manque que la logique de répartition hebdomadaire (si souhaitée côté back) et les évolutions post-MVP.
+
 4. 🧱 Architecture technique
 Composant	Technologie prévue
 Frontend	Angular (avec PWA)
@@ -119,4 +168,3 @@ Suggestions automatiques de repas
 Synchronisation entre appareils
 
 Mode offline amélioré
-
